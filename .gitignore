@@ -1,0 +1,21 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# Node (not used here, but for safety)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build artefacts (not used here)
+dist/
+build/
