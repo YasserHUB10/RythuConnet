@@ -104,6 +104,7 @@ function buildPriceBoard() {
         type="number"
         min="1"
         max="999"
+        inputmode="numeric"
         value="${data.value}"
         data-item="${name}"
         aria-label="${name} price in rupees per ${data.unit}"
