@@ -282,12 +282,15 @@ function simulateScan(vendorId) {
    PARKING TAB
 ═══════════════════════════════════════════════════════════════ */
 function renderParking(type) {
+  // type is the demoState key ('cars' / 'bikes')
+  // DOM element IDs use the singular prefix ('car-free' / 'bike-free')
+  const domPrefix = type.replace(/s$/, '');   // 'cars'→'car', 'bikes'→'bike'
   const slot   = demoState.parking[type];
   const pct    = slot.free / slot.total;
 
-  const freeEl   = document.getElementById(`${type}-free`);
-  const barEl    = document.getElementById(`${type}-bar`);
-  const statusEl = document.getElementById(`${type}-status`);
+  const freeEl   = document.getElementById(`${domPrefix}-free`);
+  const barEl    = document.getElementById(`${domPrefix}-bar`);
+  const statusEl = document.getElementById(`${domPrefix}-status`);
 
   if (!freeEl || !barEl || !statusEl) return;
 

@@ -1,10 +1,10 @@
-/* ═══════════════════════════════════════════════════════════════
-   RythuConnect · style.css
+﻿/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   RythuConnect Â· style.css
    Mobile-first, chalkboard design system
-   Tokens → Layout → Components → Sections → Utilities
-═══════════════════════════════════════════════════════════════ */
+   Tokens â†’ Layout â†’ Components â†’ Sections â†’ Utilities
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
-/* ── DESIGN TOKENS ───────────────────────────────────────────── */
+/* â”€â”€ DESIGN TOKENS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
   /* Chalkboard palette */
   --board:         #1a3a2a;
@@ -61,9 +61,9 @@
   --container-pad: var(--space-5);
 }
 
-/* ── RESET ───────────────────────────────────────────────────── */
+/* â”€â”€ RESET â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -74,13 +74,14 @@ body {
   color: #1a1a1a;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 img, svg { max-width: 100%; display: block; }
 a { color: inherit; }
 ul[role="list"], ol[role="list"] { list-style: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
-/* ── SKIP LINK ───────────────────────────────────────────────── */
+/* â”€â”€ SKIP LINK â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .skip-link {
   position: absolute;
   top: -100%;
@@ -95,21 +96,22 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .skip-link:focus { top: var(--space-4); }
 
-/* ── FOCUS RING ──────────────────────────────────────────────── */
+/* â”€â”€ FOCUS RING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :focus-visible {
   outline: 3px solid var(--turmeric);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
 
-/* ── CONTAINER ───────────────────────────────────────────────── */
+/* â”€â”€ CONTAINER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .container {
   max-width: var(--container-max);
   margin-inline: auto;
   padding-inline: var(--container-pad);
+  min-width: 0;
 }
 
-/* ── BUTTONS ─────────────────────────────────────────────────── */
+/* â”€â”€ BUTTONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -161,7 +163,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .btn--chilli:hover, .btn--chilli:focus-visible { background: var(--chilli-light); }
 
-/* ── BADGES ──────────────────────────────────────────────────── */
+/* â”€â”€ BADGES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .badge {
   display: inline-block;
   padding: var(--space-1) var(--space-3);
@@ -209,9 +211,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border: 1px solid rgba(61,158,68,0.3);
 }
 
-/* ── SECTIONS ────────────────────────────────────────────────── */
+/* â”€â”€ SECTIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section {
   padding-block: var(--space-16);
+  overflow-x: hidden;
 }
 .section--board {
   background: var(--board);
@@ -249,9 +252,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-inline: auto;
 }
 
-/* ═══════════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    HERO
-═══════════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .hero {
   background: var(--board);
   color: var(--chalk);
@@ -366,7 +369,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-bottom: var(--space-2);
 }
 .hero__team li::before {
-  content: '✦ ';
+  content: 'âœ¦ ';
   color: var(--turmeric);
   opacity: 0.6;
 }
@@ -376,9 +379,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   letter-spacing: 0.05em;
 }
 
-/* ═══════════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PROBLEM CARDS
-═══════════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .problem-cards {
   display: grid;
   grid-template-columns: 1fr;
@@ -457,9 +460,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--board);
 }
 
-/* ═══════════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    DEMO TABS
-═══════════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .demo-tabs {
   display: flex;
   gap: var(--space-2);
@@ -469,14 +472,26 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding-bottom: var(--space-2);
 }
 .demo-tab {
-  padding: var(--space-3) var(--space-5);
+  padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-md) var(--radius-md) 0 0;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 600;
   color: var(--chalk-dim);
   background: rgba(255,255,255,0.05);
   border: 1px solid transparent;
   transition: color var(--transition), background var(--transition), border-color var(--transition);
+  /* Allow tabs to shrink and wrap at narrow widths */
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .demo-tab {
+    font-size: 0.78rem;
+    padding: var(--space-2) var(--space-3);
+    flex: 1 1 calc(50% - var(--space-2));
+  }
 }
 .demo-tab:hover, .demo-tab:focus-visible {
   color: var(--chalk);
@@ -493,7 +508,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 .demo-panel--hidden { display: none; }
 
-/* ── Panel shell ── */
+/* â”€â”€ Panel shell â”€â”€ */
 .panel {
   background: var(--board-mid);
   border: 1px solid rgba(245,240,232,0.1);
@@ -514,12 +529,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-bottom: var(--space-5);
 }
 
-/* ── PRICE BOARD demo ── */
+/* â”€â”€ PRICE BOARD demo â”€â”€ */
 .price-demo {
   display: grid;
   gap: var(--space-5);
 }
-@media (min-width: 720px) { .price-demo { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 760px) { .price-demo { grid-template-columns: 1fr 1fr; } }
 
 .price-inputs {
   display: flex;
@@ -610,7 +625,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 1.6;
 }
 
-/* ── VENDOR QR demo ── */
+/* â”€â”€ VENDOR QR demo â”€â”€ */
 .vendor-demo { }
 .vendor-demo__hint {
   font-size: 0.88rem;
@@ -692,7 +707,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .scan-result--verified { color: var(--leaf-light); }
 .scan-result--fail     { color: var(--chilli-light); }
 
-/* ── PARKING demo ── */
+/* â”€â”€ PARKING demo â”€â”€ */
 .parking-demo__hint {
   font-size: 0.88rem;
   color: var(--chalk-dim);
@@ -788,7 +803,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .legend-dot--orange { background: var(--occupied); }
 .legend-dot--red    { background: var(--chilli); }
 
-/* ── SMS demo ── */
+/* â”€â”€ SMS demo â”€â”€ */
 .sms-demo__hint {
   font-size: 0.88rem;
   color: var(--chalk-dim);
@@ -888,9 +903,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--turmeric);
 }
 
-/* ═══════════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    OUTCOMES (STAT TILES)
-═══════════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .stat-tiles {
   display: grid;
   grid-template-columns: 1fr;
@@ -961,9 +976,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   color: var(--chalk-faint);
 }
 
-/* ═══════════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    HOW IT WORKS (FLOW STEPS)
-═══════════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .flow-steps {
   display: flex;
   flex-direction: column;
@@ -1083,9 +1098,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border: 1px solid rgba(232,168,37,0.3);
 }
 
-/* ═══════════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    NOVELTY / WHY
-═══════════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .novelty-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1154,9 +1169,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .impact-item strong { display: block; font-size: 0.9rem; color: var(--board); margin-bottom: var(--space-1); }
 .impact-item p { font-size: 0.82rem; color: #666; }
 
-/* ═══════════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PILOT & RISKS
-═══════════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .pilot-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -1190,7 +1205,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   line-height: 1.6;
 }
 .pilot-card__list li::before {
-  content: '→';
+  content: 'â†’';
   position: absolute;
   left: 0;
   color: var(--turmeric);
@@ -1226,9 +1241,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   min-width: 120px;
 }
 
-/* ═══════════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    FOOTER
-═══════════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .site-footer {
   background: var(--board-dark);
   color: var(--chalk);
@@ -1308,10 +1323,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .footer-disclaimer strong { color: var(--chalk-dim); }
 
-/* ═══════════════════════════════════════════════════════════════
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    PRINT / UTILITY
-═══════════════════════════════════════════════════════════════ */
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 @media print {
   .hero__cta-row, .demo-tabs, .demo-panel, .phone-keys { display: none; }
   body { color: #000; background: #fff; }
 }
+
+
