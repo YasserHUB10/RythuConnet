@@ -8,14 +8,15 @@ A judge-facing showcase for **RythuConnect**, a low-cost Flutter + SMS companion
 
 ## What It Is
 
-A single-page static site demonstrating the four core features of RythuConnect:
+A single-page static site demonstrating the core features of RythuConnect:
 
 | Feature | Demo interaction |
 |---|---|
 | Live officer-synced price board | Edit prices as the officer; shopper view updates live; run a spot-check |
 | QR vendor verification | Tap "Scan QR" on any vendor card to see Verified / Not Registered |
 | Live parking counter | Enter / Leave buttons update free-slot counts with colour-coded status |
-| SMS / USSD mode | Tap command keys (PRICE TOMATO, PARK, VERIFY R-104) to simulate SMS replies |
+| SMS / USSD mode | Tap command keys (PRICE, PARK, VERIFY, RATE) to simulate SMS replies |
+| Vegetable & Vendor Reviews | Rate produce and QR-verified vendors; view averages and auto-flagged feedback |
 
 > **All data on this site is demo data only.** No real network calls are made.
 
@@ -32,16 +33,15 @@ No build step, no dependencies, no server required.
 **Option 2 — local server (avoids browser CORS on some systems):**
 ```bash
 # Python 3
-python -m http.server 8080
-# then open http://localhost:8080
+python -m http.server 8743
+# then open http://localhost:8743
 ```
 
 ---
 
 ## Live URL
 
-🔗 **[https://your-deployment-url-here.vercel.app](https://your-deployment-url-here.vercel.app)**  
-*(replace with actual deployed URL)*
+🔗 **[https://rythuconnect2.vercel.app/](https://rythuconnect2.vercel.app/)**
 
 ---
 

@@ -122,6 +122,7 @@
           <button class="demo-tab" role="tab" aria-selected="false" aria-controls="tab-vendor" id="btn-vendor" data-tab="vendor">🪪 Vendor QR</button>
           <button class="demo-tab" role="tab" aria-selected="false" aria-controls="tab-parking" id="btn-parking" data-tab="parking">🅿️ Parking</button>
           <button class="demo-tab" role="tab" aria-selected="false" aria-controls="tab-sms" id="btn-sms" data-tab="sms">📱 SMS Mode</button>
+          <button class="demo-tab" role="tab" aria-selected="false" aria-controls="tab-reviews" id="btn-reviews" data-tab="reviews">⭐ Reviews</button>
         </div>
 
         <!-- ── TAB: PRICE BOARD ── -->
@@ -231,7 +232,7 @@
                     <span>📶 Demo</span>
                   </div>
                   <div class="sms-thread" id="sms-thread" aria-live="polite" aria-label="SMS conversation">
-                    <div class="sms-bubble sms-bubble--in">Welcome to RythuConnect SMS. Reply PRICE &lt;item&gt;, PARK, or VERIFY &lt;ID&gt;.</div>
+                    <div class="sms-bubble sms-bubble--in">Welcome to RythuConnect SMS. Reply PRICE &lt;item&gt;, PARK, VERIFY &lt;ID&gt;, or RATE &lt;item&gt; &lt;1-5&gt;.</div>
                   </div>
                 </div>
                 <div class="phone-keys">
@@ -240,9 +241,121 @@
                   <button class="phone-key" data-cmd="PARK">PARK</button>
                   <button class="phone-key" data-cmd="VERIFY R-104">VERIFY R-104</button>
                   <button class="phone-key" data-cmd="VERIFY R-999">VERIFY R-999</button>
+                  <button class="phone-key" data-cmd="RATE TOMATO 4">RATE TOMATO 4</button>
+                  <button class="phone-key" data-cmd="RATE ONION 2">RATE ONION 2</button>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- ── TAB: REVIEWS ── -->
+        <div class="demo-panel demo-panel--hidden" role="tabpanel" id="tab-reviews" aria-labelledby="btn-reviews" hidden>
+          <div class="reviews-demo">
+
+            <!-- Sub-mode toggle chips -->
+            <div class="reviews-mode-chips" role="group" aria-label="Review category selection">
+              <button class="review-chip review-chip--active" id="chip-mode-veg" type="button" aria-pressed="true" data-mode="vegetable">🥦 Vegetable Reviews</button>
+              <button class="review-chip" id="chip-mode-vendor" type="button" aria-pressed="false" data-mode="vendor">👨‍🌾 Vendor Reviews</button>
+            </div>
+
+            <div class="reviews-layout">
+              <!-- Left side: Summary Board (reusing shopper price-board look) -->
+              <div class="panel reviews-summary-panel">
+                <div class="panel__header">
+                  <span class="role-badge role-badge--shopper" id="reviews-board-title">🛒 Produce Ratings</span>
+                  <span class="demo-label">Demo only</span>
+                </div>
+                <p class="panel__hint" id="reviews-board-hint">Average ratings from shoppers at Rythu Bazaar, Mehdipatnam.</p>
+                <div class="price-board-display reviews-board-display" id="reviews-summary-list" aria-live="polite" aria-label="Ratings summary board">
+                  <!-- Injected by JS -->
+                </div>
+                <div class="reviews-reset-wrap">
+                  <button type="button" class="btn-text-reset" id="btn-reset-reviews">↺ Reset demo reviews</button>
+                </div>
+              </div>
+
+              <!-- Right side: Add a review card + Flagged list -->
+              <div class="panel reviews-form-panel">
+                <div class="panel__header">
+                  <span class="role-badge role-badge--officer">✍️ Add a Review</span>
+                  <span class="demo-label">Demo</span>
+                </div>
+
+                <form id="review-form" class="review-form" novalidate>
+                  <div class="review-form-group">
+                    <label for="review-target-select" class="review-label" id="review-target-label">Select Vegetable</label>
+                    <select id="review-target-select" class="review-select" aria-describedby="vendor-mode-note">
+                      <!-- Injected by JS -->
+                    </select>
+                    <p class="review-note" id="vendor-mode-note" hidden>Only QR-verified vendors can be rated.</p>
+                  </div>
+
+                  <div class="review-form-group">
+                    <span class="review-label" id="star-rating-label">Rating (Required)</span>
+                    <div class="star-rating-row" role="radiogroup" aria-labelledby="star-rating-label" id="star-rating-group">
+                      <button type="button" class="star-btn" data-star="1" aria-label="1 star" aria-pressed="false">★</button>
+                      <button type="button" class="star-btn" data-star="2" aria-label="2 stars" aria-pressed="false">★</button>
+                      <button type="button" class="star-btn" data-star="3" aria-label="3 stars" aria-pressed="false">★</button>
+                      <button type="button" class="star-btn" data-star="4" aria-label="4 stars" aria-pressed="false">★</button>
+                      <button type="button" class="star-btn" data-star="5" aria-label="5 stars" aria-pressed="false">★</button>
+                    </div>
+                  </div>
+
+                  <div class="review-form-group">
+                    <span class="review-label" id="quick-tags-label">Quick Tags (Optional)</span>
+                    <div class="quick-tags-row" role="group" aria-labelledby="quick-tags-label">
+                      <button type="button" class="tag-chip" data-tag="Fresh" aria-pressed="false">Fresh</button>
+                      <button type="button" class="tag-chip" data-tag="Fair price" aria-pressed="false">Fair price</button>
+                      <button type="button" class="tag-chip" data-tag="Clean" aria-pressed="false">Clean</button>
+                      <button type="button" class="tag-chip" data-tag="Not fresh" aria-pressed="false">Not fresh</button>
+                      <button type="button" class="tag-chip" data-tag="Overpriced" aria-pressed="false">Overpriced</button>
+                    </div>
+                  </div>
+
+                  <div class="review-form-group">
+                    <div class="comment-label-row">
+                      <label for="review-comment-input" class="review-label">Optional Comment</label>
+                      <span class="char-counter" id="review-char-count" aria-live="polite">0 / 100</span>
+                    </div>
+                    <input type="text" id="review-comment-input" class="review-comment-input" maxlength="100" placeholder="e.g. Crisp and fresh today" autocomplete="off" />
+                  </div>
+
+                  <div class="review-validation-msg" id="review-validation-msg" aria-live="polite"></div>
+
+                  <button type="submit" class="btn btn--primary btn--sm" id="btn-submit-review">Submit Review</button>
+                </form>
+
+                <!-- Flagged for Estate Officer mini-list -->
+                <div class="flagged-officer-section">
+                  <div class="flagged-header">
+                    <span class="flagged-title">🚩 Flagged for Estate Officer</span>
+                    <span class="demo-label">Demo</span>
+                  </div>
+                  <p class="flagged-hint">Auto-flagged if ≤2 stars or tagged "Not fresh" / "Overpriced" (Step 6 feedback loop).</p>
+                  <div class="flagged-list" id="flagged-reviews-list" aria-live="polite">
+                    <!-- Injected by JS -->
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Latest reviews list -->
+            <div class="panel latest-reviews-panel">
+              <div class="panel__header">
+                <span class="role-badge role-badge--shopper">🕒 Latest Reviews</span>
+                <span class="demo-label">Demo</span>
+              </div>
+              <div class="latest-reviews-list" id="latest-reviews-list" aria-live="polite">
+                <!-- Injected by JS -->
+              </div>
+            </div>
+
+            <p class="reviews-tab-disclaimer">
+              Demo reviews only. In the pilot, vendor reviews apply only to QR-verified vendors.
+            </p>
+
           </div>
         </div>
 
@@ -281,6 +394,13 @@
             <div class="stat-tile__value" aria-label="Metric placeholder">—</div>
             <div class="stat-tile__label">Seconds to verify a vendor</div>
             <div class="stat-tile__context">QR scan to result</div>
+          </li>
+
+          <li class="stat-tile">
+            <div class="stat-tile__add-badge" aria-label="Value not yet measured">Add measured value</div>
+            <div class="stat-tile__value" aria-label="Metric placeholder">—</div>
+            <div class="stat-tile__label">Reviews collected in pilot</div>
+            <div class="stat-tile__context">Produce and vendor ratings</div>
           </li>
 
         </ul>
@@ -354,7 +474,7 @@
             <div class="flow-step__num" aria-hidden="true">6</div>
             <div class="flow-step__content">
               <h3 class="flow-step__title">Feedback Logged</h3>
-              <p class="flow-step__body">Shoppers flag price discrepancies in one tap. Logs surface to the Estate Officer dashboard for follow-up.</p>
+              <p class="flow-step__body">Shoppers rate produce and vendors, and flag price discrepancies in one tap. Logs surface to the Estate Officer dashboard for follow-up.</p>
             </div>
           </li>
 
