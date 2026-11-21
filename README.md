@@ -45,9 +45,11 @@ python -m http.server 8743
 
 ---
 
-## GitHub
+## GitHub & Deployment
 
-[https://github.com/YasserHUB10/RythuConnet](https://github.com/YasserHUB10/RythuConnet)
+- **GitHub Repository**: [https://github.com/YasserHUB10/RythuConnet](https://github.com/YasserHUB10/RythuConnet)
+- **Lead Developer**: [@YasserHUB10](https://github.com/YasserHUB10)
+- **Live Showcase**: [https://rythuconnect2.vercel.app/](https://rythuconnect2.vercel.app/)
 
 ---
 
@@ -63,15 +65,18 @@ rythuconnect-site/
 
 ---
 
-## Team
+## Team & Project Details
 
-| Name | Role |
-|---|---|
-| Yasser AbdulRahman Mohammed | Team lead |
-| Noraiz Ali | Member |
-| Mohammed Abdul Wasay Ahmed | Member |
+**Project**: RythuConnect  
+**Event**: Design Thinking Ideathon 2026  
+**Team**: Team GOAT (Team 5)  
+**Program**: B.Tech CSE (Data Science) · CSD-A  
 
-**B.Tech CSE (Data Science) · CSD-A**
+| Member | Role | GitHub |
+|---|---|---|
+| Yasser AbdulRahman Mohammed | Team lead & developer | [@YasserHUB10](https://github.com/YasserHUB10) |
+| Noraiz Ali | Ideation & research | — |
+| Mohammed Abdul Wasay Ahmed | Architecture & analysis | — |
 
 ---
 
